@@ -2,6 +2,7 @@ import 'package:bmi_calculator/calculate.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class IntroScreen extends StatefulWidget {
@@ -13,6 +14,11 @@ class IntroScreen extends StatefulWidget {
 
 class IntroScreenState extends State<IntroScreen> {
   List<Slide> slides = [];
+  static const List<String> _assetNames = <String>[
+    'assets/images/intro1.svg',
+    'assets/images/intro2.svg',
+    'assets/images/intro3.svg',
+  ];
 
   @override
   void initState() {
@@ -20,27 +26,59 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       Slide(
-        title: "ERASER",
-        description: "Allow miles wound place the leave had. To sitting subject no improve studied limited",
-        pathImage: "images/photo_eraser.png",
-        backgroundColor: Color(0xfff5a623),
+        title: "BMI Calculator",
+        description: "Ketahui apakah badan kamu ideal atau tidak",
+        // pathImage: "assets/images/intro1.svg",
+        centerWidget: SvgPicture.asset(_assetNames[0]),
+        backgroundColor: const Color(0xff1c2e35),
+        heightImage: 200,
+        styleTitle: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 16,
+        ),
+        styleDescription: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 12,
+        ),
+
       ),
     );
     slides.add(
       Slide(
-        title: "PENCIL",
-        description: "Ye indulgence unreserved connection alteration appearance",
-        pathImage: "images/photo_pencil.png",
-        backgroundColor: Color(0xff203152),
+        title: "Rekomendasi",
+        description: "Ketahui rekomendasi untuk membantu membentuk badan kamu yang ideal",
+
+        centerWidget: SvgPicture.asset(_assetNames[1]),
+        backgroundColor: const Color(0xff1c2e35),
+        heightImage: 200,
+        styleTitle: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 16,
+        ),
+        styleDescription: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 12,
+        ),
+
       ),
     );
     slides.add(
       Slide(
-        title: "RULER",
+        title: "Bookmark",
         description:
-        "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
-        pathImage: "images/photo_ruler.png",
-        backgroundColor: Color(0xff9932CC),
+        "Tambahkan ke bookmark untuk menyimpan hasil perhitungan kamu",
+        centerWidget: SvgPicture.asset(_assetNames[2]),
+        backgroundColor: const Color(0xff1c2e35),
+        heightImage: 200,
+        styleTitle: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 16,
+        ),
+        styleDescription: const TextStyle(
+          color: Color(0xffffffff),
+          fontSize: 12,
+        ),
+
       ),
     );
   }
@@ -49,10 +87,18 @@ class IntroScreenState extends State<IntroScreen> {
     // navigate to main
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => Calculate(),
+        builder: (context) => const Calculate(),
       ),
     );
 
+  }
+
+  ButtonStyle myButtonStyle() {
+    return ButtonStyle(
+      shape: MaterialStateProperty.all<OutlinedBorder>(const StadiumBorder()),
+      backgroundColor: MaterialStateProperty.all<Color>(const Color(0x33ffcc5c)),
+      overlayColor: MaterialStateProperty.all<Color>(const Color(0x33ffcc5c)),
+    );
   }
 
   @override
@@ -63,3 +109,4 @@ class IntroScreenState extends State<IntroScreen> {
     );
   }
 }
+

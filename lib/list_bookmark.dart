@@ -1,1 +1,22 @@
 import 'package:flutter/material.dart';
+
+class Bookmark extends StatefulWidget {
+  const Bookmark({Key? key}) : super(key: key);
+
+  @override
+  _BookmarkState createState() => _BookmarkState();
+}
+
+class _BookmarkState extends State<Bookmark> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Bookmark Page'),
+      ),
+      body: const Center(
+        child: Text('Bookmark Page'),
+      ),
+    );
+  }
+}
